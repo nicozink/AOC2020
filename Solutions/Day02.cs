@@ -8,7 +8,7 @@ namespace Solutions
     /// Solution for day 2:
     /// https://adventofcode.com/2020/day/2
     /// </summary>
-    public class Day02 : ISolution
+    public class Day02 : Common.ISolution
     {
         private class PasswordRule
         {
@@ -20,22 +20,28 @@ namespace Solutions
             public String Password;
         }
 
+        public int GetSolution1(String path)
+        {
+            var passwords = ParsePasswordRules(path);
+
+            return passwords.Count(x => IsPasswordValidRule1(x));
+        }
+
         public void Part1()
         {
-            var passwords = ParsePasswordRules();
+           Console.WriteLine("The answer is {0}", GetSolution1("Input/Day02/Input.txt"));
+        }
 
-            int validPasswords = passwords.Count(x => IsPasswordValidRule1(x));
+        public int GetSolution2(String path)
+        {
+            var passwords = ParsePasswordRules(path);
 
-            Console.WriteLine("The answer is {0}", validPasswords);
+            return passwords.Count(x => IsPasswordValidRule2(x));
         }
 
         public void Part2()
         {
-            var passwords = ParsePasswordRules();
-
-            int validPasswords = passwords.Count(x => IsPasswordValidRule2(x));
-
-            Console.WriteLine("The answer is {0}", validPasswords);
+            Console.WriteLine("The answer is {0}", GetSolution2("Input/Day02/Input.txt"));
         }
 
         /// <summary>
@@ -88,9 +94,9 @@ namespace Solutions
         /// 2-9 c: ccccccccc
         /// </summary>
         /// <returns>The password rules.</returns>
-        private IEnumerable<PasswordRule> ParsePasswordRules()
+        private IEnumerable<PasswordRule> ParsePasswordRules(String path)
         {
-            foreach (var input in System.IO.File.ReadLines("Input/Day02.txt"))
+            foreach (var input in System.IO.File.ReadLines(path))
             {
                 var stringItems = input.Split(' ');
 

@@ -2,22 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-/// <summary>
-/// A solution for a specific day.
-/// </summary>
-public interface ISolution
-{
-	/// <summary>
-	/// Solves part 1 of the challenge.
-	/// </summary>
-	void Part1();
-
-	/// <summary>
-	/// Solves part 2 of the challenge.
-	/// </summary>
-	void Part2();
-}
-
 public class Program
 {
 	/// <summary>
@@ -30,7 +14,7 @@ public class Program
 		Console.WriteLine("Welcome to Advent of Code 2020!");
 		Console.WriteLine();
 
-		var solutions = new List<ISolution>()
+		var solutions = new List<Common.ISolution>()
 		{
 			new Solutions.Day01(),
 			new Solutions.Day02()

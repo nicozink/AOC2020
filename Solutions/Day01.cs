@@ -11,26 +11,36 @@ namespace Solutions
     /// Solution for day 1:
     /// https://adventofcode.com/2020/day/1
     /// </summary>
-    public class Day01 : ISolution
+    public class Day01 : Common.ISolution
     {
-        public void Part1()
+        public int GetSolution1(String path)
         {
-            var numbers = Common.IO.ReadNumbers("Input/Day1.txt").ToList();
+            var numbers = Common.IO.ReadNumbers(path).ToList();
 
             var pair = GetPairs(numbers)
                 .First(x => x.Item1 + x.Item2 == 2020);
 
-            Console.WriteLine("The answer is {0}", pair.Item1 * pair.Item2);
+            return pair.Item1 * pair.Item2;
         }
 
-        public void Part2()
+        public void Part1()
         {
-            var numbers = Common.IO.ReadNumbers("Input/Day1.txt").ToList();
+            Console.WriteLine("The answer is {0}", GetSolution1("Input/Day01/Input.txt"));
+        }
+
+        public int GetSolution2(String path)
+        {
+            var numbers = Common.IO.ReadNumbers(path).ToList();
 
             var pair = GetTriples(numbers)
                 .First(x => x.Item1 + x.Item2 + x.Item3 == 2020);
 
-            Console.WriteLine("The answer is {0}", pair.Item1 * pair.Item2 * pair.Item3);
+            return pair.Item1 * pair.Item2 * pair.Item3;
+        }
+
+        public void Part2()
+        {
+            Console.WriteLine("The answer is {0}", GetSolution2("Input/Day01/Input.txt"));
         }
 
         /// <summary>
