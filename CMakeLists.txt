@@ -9,6 +9,7 @@ set(CODE
 	Common/ISolution.cs
 	Solutions/Day01.cs
 	Solutions/Day02.cs
+	Solutions/Day03.cs
 )
 
 set(RESOURCES
@@ -16,6 +17,8 @@ set(RESOURCES
 	Input/Day01/Input.txt
 	Input/Day02/Example.txt
 	Input/Day02/Input.txt
+	Input/Day03/Example.txt
+	Input/Day03/Input.txt
 )
 
 add_library(Solutions SHARED ${CODE} ${RESOURCES})
@@ -29,6 +32,7 @@ target_link_libraries(AOC2020 Solutions)
 set(TEST
 	Tests/Day01Test.cs
 	Tests/Day02Test.cs
+	Tests/Day03Test.cs
 )
 
 add_library(Tests SHARED ${TEST})

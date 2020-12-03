@@ -17,7 +17,8 @@ public class Program
 		var solutions = new List<Common.ISolution>()
 		{
 			new Solutions.Day01(),
-			new Solutions.Day02()
+			new Solutions.Day02(),
+			new Solutions.Day03()
 		};
 
 		if (args.Length == 1)
