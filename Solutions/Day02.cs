@@ -8,7 +8,8 @@ namespace Solutions
     /// Solution for day 2:
     /// https://adventofcode.com/2020/day/2
     /// </summary>
-    public class Day02 : Common.ISolution
+    [Common.SolutionClass(Day = 2)]
+    public class Day02
     {
         private class PasswordRule
         {
@@ -27,6 +28,7 @@ namespace Solutions
             return passwords.Count(x => IsPasswordValidRule1(x));
         }
 
+        [Common.SolutionMethod(Part = 1)]
         public void Part1()
         {
            Console.WriteLine("The answer is {0}", GetSolution1("Input/Day02/Input.txt"));
@@ -39,6 +41,7 @@ namespace Solutions
             return passwords.Count(x => IsPasswordValidRule2(x));
         }
 
+        [Common.SolutionMethod(Part = 2)]
         public void Part2()
         {
             Console.WriteLine("The answer is {0}", GetSolution2("Input/Day02/Input.txt"));

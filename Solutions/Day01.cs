@@ -11,7 +11,8 @@ namespace Solutions
     /// Solution for day 1:
     /// https://adventofcode.com/2020/day/1
     /// </summary>
-    public class Day01 : Common.ISolution
+    [Common.SolutionClass(Day = 1)]
+    public class Day01
     {
         public int GetSolution1(String path)
         {
@@ -23,6 +24,7 @@ namespace Solutions
             return pair.Item1 * pair.Item2;
         }
 
+        [Common.SolutionMethod(Part = 1)]
         public void Part1()
         {
             Console.WriteLine("The answer is {0}", GetSolution1("Input/Day01/Input.txt"));
@@ -38,6 +40,7 @@ namespace Solutions
             return pair.Item1 * pair.Item2 * pair.Item3;
         }
 
+        [Common.SolutionMethod(Part = 2)]
         public void Part2()
         {
             Console.WriteLine("The answer is {0}", GetSolution2("Input/Day01/Input.txt"));

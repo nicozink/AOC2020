@@ -6,7 +6,8 @@ include(CSharpUtilities)
 
 set(CODE
 	Common/IO.cs
-	Common/ISolution.cs
+	Common/SolutionClassAttribute.cs
+	Common/SolutionMethodAttribute.cs
 	Solutions/Day01.cs
 	Solutions/Day02.cs
 	Solutions/Day03.cs

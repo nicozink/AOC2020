@@ -1,6 +1,8 @@
+using Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 public class Program
 {
@@ -14,12 +16,12 @@ public class Program
 		Console.WriteLine("Welcome to Advent of Code 2020!");
 		Console.WriteLine();
 
-		var solutions = new List<Common.ISolution>()
-		{
-			new Solutions.Day01(),
-			new Solutions.Day02(),
-			new Solutions.Day03()
-		};
+		// Get all classes that have the SolutionClass attribute.
+		// These hold the solutions for each day.
+		var matchingTypes = from t in Assembly.Load("Solutions").GetTypes()
+							where SolutionClassAttribute.GetAttribute(t) != null
+							orderby SolutionClassAttribute.GetAttribute(t).Day
+							select t;
 
 		if (args.Length == 1)
 		{
@@ -34,38 +36,52 @@ public class Program
 			int selectedDay = parts[0];
 			int selectedIndex = selectedDay - 1;
 
-			var solution = solutions[selectedIndex];
-
 			int? selectedPart = null;
 			if (parts.Count() == 2)
 			{
 				selectedPart = parts[1];
 			}
 
-			if (!selectedPart.HasValue || selectedPart == 1)
-			{
-				solution.Part1();
-			}
-
-			if (!selectedPart.HasValue || selectedPart == 2)
-			{
-				solution.Part2();
-			}
+			var type = matchingTypes.First(x => SolutionClassAttribute.GetAttribute(x).Day == selectedDay);
+			InvokeSolution(type, selectedPart);
 		}
 		else
 		{
 			// If we don't have any parameters, run all solutions.
 
-			for (int i = 0; i < solutions.Count; ++i)
+			foreach (var type in matchingTypes)
 			{
-				Console.WriteLine("Day {0}", i + 1);
-
-				var solution = solutions[i];
-				solution.Part1();
-				solution.Part2();
+				InvokeSolution(type, null);
 
 				Console.WriteLine();
 			}
+		}
+	}
+
+	/// <summary>
+	/// Invokes the solution for a specific day.
+	/// </summary>
+	/// <param name="type">The class type for the soltion.</param>
+	/// <param name="part">The part of the solution to run, or null to run all</param>
+	static void InvokeSolution(Type type, int? part)
+    {
+		var classAttribute = SolutionClassAttribute.GetAttribute(type);
+		Console.WriteLine("Day {0}", classAttribute.Day);
+
+		var instance = Activator.CreateInstance(type);
+
+		var methods = type.GetMethods()
+					.Where(m => SolutionMethodAttribute.GetAttribute(m) != null)
+					.ToDictionary(x => SolutionMethodAttribute.GetAttribute(x).Part);
+
+		if (!part.HasValue || part == 1)
+		{
+			methods[1].Invoke(instance, null);
+		}
+
+		if (!part.HasValue || part == 2)
+		{
+			methods[2].Invoke(instance, null);
 		}
 	}
 }
