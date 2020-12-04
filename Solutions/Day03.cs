@@ -8,7 +8,8 @@ namespace Solutions
     /// Solution for day 3:
     /// https://adventofcode.com/2020/day/3
     /// </summary>
-    public class Day03 : Common.ISolution
+    [Common.SolutionClass(Day = 3)]
+    public class Day03
     {
         public int GetSolution1(String path)
         {
@@ -17,6 +18,7 @@ namespace Solutions
             return RunDownSlope(tobogganGrid, 1, 3).Count(x => x == '#');
         }
 
+        [Common.SolutionMethod(Part = 1)]
         public void Part1()
         {
            Console.WriteLine("The answer is {0}", GetSolution1("Input/Day03/Input.txt"));
@@ -36,6 +38,7 @@ namespace Solutions
             return result;
         }
 
+        [Common.SolutionMethod(Part = 2)]
         public void Part2()
         {
             Console.WriteLine("The answer is {0}", GetSolution2("Input/Day03/Input.txt"));
