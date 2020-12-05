@@ -8,9 +8,12 @@ set(CODE
 	Common/IO.cs
 	Common/SolutionClassAttribute.cs
 	Common/SolutionMethodAttribute.cs
+	Common/SolutionType.cs
+	Common/Solver.cs
 	Solutions/Day01.cs
 	Solutions/Day02.cs
 	Solutions/Day03.cs
+	Solutions/Day04.cs
 )
 
 set(RESOURCES
@@ -20,6 +23,9 @@ set(RESOURCES
 	Input/Day02/Input.txt
 	Input/Day03/Example.txt
 	Input/Day03/Input.txt
+	Input/Day04/Example1.txt
+	Input/Day04/Example2.txt
+	Input/Day04/Input.txt
 )
 
 add_library(Solutions SHARED ${CODE} ${RESOURCES})
@@ -34,6 +40,7 @@ set(TEST
 	Tests/Day01Test.cs
 	Tests/Day02Test.cs
 	Tests/Day03Test.cs
+	Tests/Day04Test.cs
 )
 
 add_library(Tests SHARED ${TEST})

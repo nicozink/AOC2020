@@ -16,7 +16,16 @@ namespace Common
 		}
 
 		/// <summary>
-		/// The specific day.
+		/// The solution type.
+		/// </summary>
+		public SolutionType Type
+        {
+			get;
+			set;
+        }
+
+		/// <summary>
+		/// The part of the solution.
 		/// </summary>
 		public int Part
         {

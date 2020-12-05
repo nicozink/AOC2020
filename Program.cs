@@ -16,13 +16,6 @@ public class Program
 		Console.WriteLine("Welcome to Advent of Code 2020!");
 		Console.WriteLine();
 
-		// Get all classes that have the SolutionClass attribute.
-		// These hold the solutions for each day.
-		var matchingTypes = from t in Assembly.Load("Solutions").GetTypes()
-							where SolutionClassAttribute.GetAttribute(t) != null
-							orderby SolutionClassAttribute.GetAttribute(t).Day
-							select t;
-
 		if (args.Length == 1)
 		{
 			// Take the parameters, and split them into parts.
@@ -42,16 +35,15 @@ public class Program
 				selectedPart = parts[1];
 			}
 
-			var type = matchingTypes.First(x => SolutionClassAttribute.GetAttribute(x).Day == selectedDay);
-			InvokeSolution(type, selectedPart);
+			InvokeSolution(selectedDay, selectedPart);
 		}
 		else
 		{
 			// If we don't have any parameters, run all solutions.
 
-			foreach (var type in matchingTypes)
+			for (int i = 1; i <= 25; ++i)
 			{
-				InvokeSolution(type, null);
+				InvokeSolution(i, null);
 
 				Console.WriteLine();
 			}
@@ -63,25 +55,21 @@ public class Program
 	/// </summary>
 	/// <param name="type">The class type for the soltion.</param>
 	/// <param name="part">The part of the solution to run, or null to run all</param>
-	static void InvokeSolution(Type type, int? part)
+	static void InvokeSolution(int day, int? part)
     {
-		var classAttribute = SolutionClassAttribute.GetAttribute(type);
-		Console.WriteLine("Day {0}", classAttribute.Day);
-
-		var instance = Activator.CreateInstance(type);
-
-		var methods = type.GetMethods()
-					.Where(m => SolutionMethodAttribute.GetAttribute(m) != null)
-					.ToDictionary(x => SolutionMethodAttribute.GetAttribute(x).Part);
-
-		if (!part.HasValue || part == 1)
+		if (Solver.HasSolution(day))
 		{
-			methods[1].Invoke(instance, null);
-		}
+			Console.WriteLine("Day {0}", day);
 
-		if (!part.HasValue || part == 2)
-		{
-			methods[2].Invoke(instance, null);
+			if (!part.HasValue || part == 1)
+			{
+				Solver.Run(day, SolutionType.Main, 1);
+			}
+
+			if (!part.HasValue || part == 2)
+			{
+				Solver.Run(day, SolutionType.Main, 2);
+			}
 		}
 	}
 }

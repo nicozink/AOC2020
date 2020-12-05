@@ -1,3 +1,4 @@
+using Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Solutions
             return passports.Count(x => IsPassportComplete(x));
         }
 
-        [Common.SolutionMethod(Part = 1)]
+        [Common.SolutionMethod(Type = SolutionType.Main, Part = 1)]
         public void Part1()
         {
            Console.WriteLine("The answer is {0}", GetSolution1("Input/Day04/Input.txt"));

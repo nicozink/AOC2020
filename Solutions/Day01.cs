@@ -24,7 +24,7 @@ namespace Solutions
             return pair.Item1 * pair.Item2;
         }
 
-        [Common.SolutionMethod(Part = 1)]
+        [Common.SolutionMethod(Type = SolutionType.Main, Part = 1)]
         public void Part1()
         {
             Console.WriteLine("The answer is {0}", GetSolution1("Input/Day01/Input.txt"));
