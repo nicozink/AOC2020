@@ -27,7 +27,7 @@ namespace Solutions
         [Common.SolutionMethod(Type = SolutionType.Main, Part = 1)]
         public void Part1()
         {
-            Console.WriteLine("The answer is {0}", GetSolution1("Input/Day01/Input.txt"));
+            Console.WriteLine("The answer is {0}", GetSolution1("Day01/Input.txt"));
         }
 
         public int GetSolution2(String path)
@@ -43,7 +43,7 @@ namespace Solutions
         [Common.SolutionMethod(Part = 2)]
         public void Part2()
         {
-            Console.WriteLine("The answer is {0}", GetSolution2("Input/Day01/Input.txt"));
+            Console.WriteLine("The answer is {0}", GetSolution2("Day01/Input.txt"));
         }
 
         /// <summary>

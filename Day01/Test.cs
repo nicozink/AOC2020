@@ -11,7 +11,7 @@ namespace Tests
         {
             var day01 = new Solutions.Day01();
 
-            int result = day01.GetSolution1("Input/Day01/Example.txt");
+            int result = day01.GetSolution1("Day01/Example.txt");
 
             Assert.AreEqual(result, 514579);
         }
@@ -21,7 +21,7 @@ namespace Tests
         {
             var day01 = new Solutions.Day01();
 
-            int result = day01.GetSolution1("Input/Day01/Input.txt");
+            int result = day01.GetSolution1("Day01/Input.txt");
 
             Assert.AreEqual(result, 927684);
         }
@@ -31,7 +31,7 @@ namespace Tests
         {
             var day01 = new Solutions.Day01();
 
-            int result = day01.GetSolution2("Input/Day01/Example.txt");
+            int result = day01.GetSolution2("Day01/Example.txt");
 
             Assert.AreEqual(result, 241861950);
         }
@@ -41,7 +41,7 @@ namespace Tests
         {
             var day01 = new Solutions.Day01();
 
-            int result = day01.GetSolution2("Input/Day01/Input.txt");
+            int result = day01.GetSolution2("Day01/Input.txt");
 
             Assert.AreEqual(result, 292093004);
         }

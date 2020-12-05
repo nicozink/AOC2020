@@ -10,22 +10,22 @@ set(CODE
 	Common/SolutionMethodAttribute.cs
 	Common/SolutionType.cs
 	Common/Solver.cs
-	Solutions/Day01.cs
-	Solutions/Day02.cs
-	Solutions/Day03.cs
-	Solutions/Day04.cs
+	Day01/Day01.cs
+	Day02/Day02.cs
+	Day03/Day03.cs
+	Day04/Day04.cs
 )
 
 set(RESOURCES
-	Input/Day01/Example.txt
-	Input/Day01/Input.txt
-	Input/Day02/Example.txt
-	Input/Day02/Input.txt
-	Input/Day03/Example.txt
-	Input/Day03/Input.txt
-	Input/Day04/Example1.txt
-	Input/Day04/Example2.txt
-	Input/Day04/Input.txt
+	Day01/Example.txt
+	Day01/Input.txt
+	Day02/Example.txt
+	Day02/Input.txt
+	Day03/Example.txt
+	Day03/Input.txt
+	Day04/Example1.txt
+	Day04/Example2.txt
+	Day04/Input.txt
 )
 
 add_library(Solutions SHARED ${CODE} ${RESOURCES})
@@ -37,10 +37,10 @@ add_executable(AOC2020 Program.cs)
 target_link_libraries(AOC2020 Solutions)
 
 set(TEST
-	Tests/Day01Test.cs
-	Tests/Day02Test.cs
-	Tests/Day03Test.cs
-	Tests/Day04Test.cs
+	Day01/Test.cs
+	Day02/Test.cs
+	Day03/Test.cs
+	Day04/Test.cs
 )
 
 add_library(Tests SHARED ${TEST})
