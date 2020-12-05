@@ -21,3 +21,6 @@ jobs:
     - name: Build
       shell: cmd
       run: cmake --build build
+    - name: Test
+      shell: cmd
+      run: mstest
