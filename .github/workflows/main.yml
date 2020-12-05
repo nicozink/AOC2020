@@ -17,7 +17,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
     - name: Configure
       shell: cmd
-        run: cmake ${{ github.event.repository.name }} -B build
+      run: cmake ${{ github.event.repository.name }} -B build
     - name: Build
       shell: cmd
         run: cmake --build build
