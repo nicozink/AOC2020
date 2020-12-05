@@ -25,4 +25,5 @@ jobs:
       run: cmake --build build
     - name: MSTest
       shell: powershell
-      run: '& "$(vswhere -property installationPath)\Common7\IDE\MSTest.exe"'
+      working-directory: ${{ github.event.repository.name }}\Debug
+      run: '& "$(vswhere -property installationPath)\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe" Tests.dll'
