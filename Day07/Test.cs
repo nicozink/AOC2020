@@ -7,13 +7,33 @@ namespace Tests
     public class Day07Test
     {
         [TestMethod]
+        public void TestExample1()
+        {
+            var solution = new Solutions.Day07();
+
+            int result = solution.GetSolution1("Day07/Example1.txt");
+
+            Assert.AreEqual(4, result);
+        }
+
+        [TestMethod]
         public void TestSolution1()
         {
             var solution = new Solutions.Day07();
 
             int result = solution.GetSolution1("Day07/Input.txt");
 
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(185, result);
+        }
+
+        [TestMethod]
+        public void TestExample2()
+        {
+            var solution = new Solutions.Day07();
+
+            int result = solution.GetSolution2("Day07/Example2.txt");
+
+            Assert.AreEqual(126, result);
         }
 
         [TestMethod]
@@ -23,7 +43,7 @@ namespace Tests
 
             long result = solution.GetSolution2("Day07/Input.txt");
 
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(89084, result);
         }
     }
 }

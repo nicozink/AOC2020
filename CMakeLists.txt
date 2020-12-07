@@ -32,7 +32,8 @@ set(RESOURCES
 	Day05/Input.txt
 	Day06/Example.txt
 	Day06/Input.txt
-	Day07/Example.txt
+	Day07/Example1.txt
+	Day07/Example2.txt
 	Day07/Input.txt
 )
 
@@ -40,6 +41,10 @@ add_library(Solutions SHARED ${CODE} ${RESOURCES})
 
 SET_SOURCE_FILES_PROPERTIES(${RESOURCES} PROPERTIES VS_TOOL_OVERRIDE "None")
 SET_SOURCE_FILES_PROPERTIES(${RESOURCES} PROPERTIES VS_COPY_TO_OUT_DIR "PreserveNewest")
+
+set_property(TARGET Solutions PROPERTY VS_DOTNET_REFERENCES
+	"System"
+	)
 
 add_executable(AOC2020 Program.cs)
 target_link_libraries(AOC2020 Solutions)
@@ -62,6 +67,7 @@ set_target_properties(Tests
 )
 
 set_property(TARGET Tests PROPERTY VS_DOTNET_REFERENCES
-    "Microsoft.VisualStudio.QualityTools.UnitTestFramework")
+    "Microsoft.VisualStudio.QualityTools.UnitTestFramework"
+	)
 
 target_link_libraries(Tests Solutions)
