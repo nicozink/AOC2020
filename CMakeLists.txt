@@ -43,7 +43,8 @@ set(RESOURCES
 	Day08/Input.txt
 	Day09/Example.txt
 	Day09/Input.txt
-	Day10/Example.txt
+	Day10/Example1.txt
+	Day10/Example2.txt
 	Day10/Input.txt
 )
 

@@ -7,13 +7,53 @@ namespace Tests
     public class Day10Test
     {
         [TestMethod]
+        public void TestExample1()
+        {
+            var solution = new Solutions.Day10();
+
+            int result = solution.GetJoltProduct("Day10/Example1.txt");
+
+            Assert.AreEqual(35, result);
+        }
+
+        [TestMethod]
+        public void TestExample2()
+        {
+            var solution = new Solutions.Day10();
+
+            int result = solution.GetJoltProduct("Day10/Example2.txt");
+
+            Assert.AreEqual(220, result);
+        }
+
+        [TestMethod]
         public void TestSolution1()
         {
             var solution = new Solutions.Day10();
 
-            int result = solution.GetSolution1("Day10/Input.txt");
+            int result = solution.GetJoltProduct("Day10/Input.txt");
 
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(2277, result);
+        }
+
+        [TestMethod]
+        public void TestExample3()
+        {
+            var solution = new Solutions.Day10();
+
+            long result = solution.CountValidArrangements("Day10/Example1.txt");
+
+            Assert.AreEqual(8, result);
+        }
+
+        [TestMethod]
+        public void TestExample4()
+        {
+            var solution = new Solutions.Day10();
+
+            long result = solution.CountValidArrangements("Day10/Example2.txt");
+
+            Assert.AreEqual(19208, result);
         }
 
         [TestMethod]
@@ -21,9 +61,9 @@ namespace Tests
         {
             var solution = new Solutions.Day10();
 
-            long result = solution.GetSolution2("Day10/Input.txt");
+            long result = solution.CountValidArrangements("Day10/Input.txt");
 
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(37024595836928, result);
         }
     }
 }
