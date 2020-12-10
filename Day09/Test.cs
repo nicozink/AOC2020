@@ -7,23 +7,39 @@ namespace Tests
     public class Day09Test
     {
         [TestMethod]
+        public void TestExample1()
+        {
+            var encription = new Solutions.Day09.Encription("Day09/Example.txt", 5);
+            long result = encription.GetInvalidNumber();
+
+            Assert.AreEqual(127, result);
+        }
+
+        [TestMethod]
         public void TestSolution1()
         {
-            var solution = new Solutions.Day09();
+            var encription = new Solutions.Day09.Encription("Day09/Input.txt", 25);
+            long result = encription.GetInvalidNumber();
 
-            int result = solution.GetSolution1("Day09/Input.txt");
+            Assert.AreEqual(41682220, result);
+        }
 
-            Assert.AreEqual(0, result);
+        [TestMethod]
+        public void TestExample2()
+        {
+            var encription = new Solutions.Day09.Encription("Day09/Example.txt", 5);
+            long result = encription.GetEncryptionWeakness();
+
+            Assert.AreEqual(62, result);
         }
 
         [TestMethod]
         public void TestSolution2()
         {
-            var solution = new Solutions.Day09();
+            var encription = new Solutions.Day09.Encription("Day09/Input.txt", 25);
+            long result = encription.GetEncryptionWeakness();
 
-            long result = solution.GetSolution2("Day09/Input.txt");
-
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(5388976, result);
         }
     }
 }

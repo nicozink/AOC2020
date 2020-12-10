@@ -6,6 +6,7 @@ include(CSharpUtilities)
 
 set(CODE
 	Common/IO.cs
+	Common/ListExtension.cs
 	Common/SolutionClassAttribute.cs
 	Common/SolutionMethodAttribute.cs
 	Common/SolutionType.cs
