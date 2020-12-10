@@ -21,6 +21,7 @@ set(CODE
 	Day08/Day08.cs
 	Day09/Day09.cs
 	Day10/Day10.cs
+	Day11/Day11.cs
 )
 
 set(RESOURCES
@@ -46,6 +47,8 @@ set(RESOURCES
 	Day10/Example1.txt
 	Day10/Example2.txt
 	Day10/Input.txt
+	Day11/Example.txt
+	Day11/Input.txt
 )
 
 add_library(Solutions SHARED ${CODE} ${RESOURCES})
@@ -71,6 +74,7 @@ set(TEST
 	Day08/Test.cs
 	Day09/Test.cs
 	Day10/Test.cs
+	Day11/Test.cs
 )
 
 add_library(Tests SHARED ${TEST})
