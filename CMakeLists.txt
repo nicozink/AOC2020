@@ -60,8 +60,6 @@ set(RESOURCES
 	Day14/Example1.txt
 	Day14/Example2.txt
 	Day14/Input.txt
-	Day15/Example.txt
-	Day15/Input.txt
 )
 
 add_library(Solutions SHARED ${CODE} ${RESOURCES})
