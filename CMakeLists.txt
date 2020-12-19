@@ -71,7 +71,8 @@ set(RESOURCES
 	Day17/Example.txt
 	Day17/Input.txt
 	Day18/Input.txt
-	Day19/Example.txt
+	Day19/Example1.txt
+	Day19/Example2.txt
 	Day19/Input.txt
 )
 
