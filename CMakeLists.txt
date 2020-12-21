@@ -1,8 +1,11 @@
 cmake_minimum_required(VERSION 3.8)
 
 PROJECT(AOC2020 LANGUAGES CSharp)
+set(CMAKE_CSharp_FLAGS "/langversion:7")
 
 include(CSharpUtilities)
+
+set(FRAMEWORK_VERSION "v4.7.2")
 
 set(CODE
 	Common/ArrayExtension.cs
@@ -88,8 +91,12 @@ set_property(TARGET Solutions PROPERTY VS_DOTNET_REFERENCES
 	"System"
 	)
 
+set_property(TARGET Solutions PROPERTY VS_DOTNET_TARGET_FRAMEWORK_VERSION ${FRAMEWORK_VERSION})
+
 add_executable(AOC2020 Program.cs)
 target_link_libraries(AOC2020 Solutions)
+
+set_property(TARGET AOC2020 PROPERTY VS_DOTNET_TARGET_FRAMEWORK_VERSION ${FRAMEWORK_VERSION})
 
 set(TEST
 	Day01/Test.cs
@@ -115,6 +122,8 @@ set(TEST
 )
 
 add_library(Tests SHARED ${TEST})
+
+set_property(TARGET Tests PROPERTY VS_DOTNET_TARGET_FRAMEWORK_VERSION ${FRAMEWORK_VERSION})
 
 set_target_properties(Tests
 	PROPERTIES
