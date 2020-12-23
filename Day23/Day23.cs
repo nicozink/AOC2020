@@ -214,7 +214,7 @@ namespace Solutions
         [Common.SolutionMethod(Part = 2)]
         public void Part2()
         {
-            Console.WriteLine("The answer is {0}", GetSolution2("Day23/Input.txt"));
+            Console.WriteLine("The answer is {0}", GetSolution2("284573961"));
         }
     }
 }
