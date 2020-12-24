@@ -48,7 +48,10 @@ namespace Common
 				.Where(m => SolutionMethodAttribute.GetAttribute(m) != null)
 				.ToDictionary(x => SolutionMethodAttribute.GetAttribute(x).Part);
 
-			methods[part].Invoke(instance, null);
+			if (methods.ContainsKey(part))
+			{
+				methods[part].Invoke(instance, null);
+			}
 		}
 
 		/// <summary>
