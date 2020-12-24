@@ -7,13 +7,33 @@ namespace Tests
     public class Day24Test
     {
         [TestMethod]
+        public void TestExample1()
+        {
+            var solution = new Solutions.Day24();
+
+            var result = solution.GetSolution1("Day24/Example.txt");
+
+            Assert.AreEqual(10, result);
+        }
+
+        [TestMethod]
         public void TestSolution1()
         {
             var solution = new Solutions.Day24();
 
             var result = solution.GetSolution1("Day24/Input.txt");
 
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(538, result);
+        }
+
+        [TestMethod]
+        public void TestExample2()
+        {
+            var solution = new Solutions.Day24();
+
+            var result = solution.GetSolution2("Day24/Example.txt");
+
+            Assert.AreEqual(2208, result);
         }
 
         [TestMethod]
@@ -23,7 +43,7 @@ namespace Tests
 
             var result = solution.GetSolution2("Day24/Input.txt");
 
-            Assert.AreEqual(0, result);
+            Assert.AreEqual(4259, result);
         }
     }
 }
